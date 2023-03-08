@@ -25,51 +25,25 @@ export default function Landing() {
 
 
 
-
-
-
-                <div data-aos="fade-up"
-                  data-aos-easing="linear"
-                   data-aos-duration="500"
-                   data-aos-delay="0"
-                  >
-
-                    <p className="text-center text-lg sm:text-3xl  pb-5 font-medium">
+                    <p  id='start' className="text-center text-lg sm:text-3xl  pb-5 font-medium">
                         در چه حوزه ای می خوای متخصص بشی ؟
                     </p>
                     <p className="text-center pb-10" > بازار برای متخصص هاست و هیچ موقع بی کار نمی مونید</p>
                     <CourseCard />
                     <Link to='/courses'><div className="w-36 mx-auto"><CommenButton>نمایش بیشتر</CommenButton></div></Link>
                     
-                </div>
 
 
-
-
-
-
-
-                <div data-aos="fade-up"
-                   data-aos-easing="linear"
-                   data-aos-duration="500"
-                   data-aos-delay="0"
-                   data-aos-anchor-placement="center-center">
+               
                     <p className="text-center text-lg sm:text-3xl pt-10 pb-5 font-medium">
                         اخبار و مقالات
                     </p>
                     <ArticleCard />
-                </div>
+               
 
-
-
-
-                <div data-aos="fade-up"
-                   data-aos-easing="linear"
-                   data-aos-duration="500"
-                   data-aos-delay="0"
-                   data-aos-anchor-placement="center-center">
+                
                     <Team />
-                </div>
+                
 
 
 

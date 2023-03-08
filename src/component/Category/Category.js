@@ -1,18 +1,69 @@
-import React ,{useState} from "react";
+import React, { useState,useEffect } from "react";
 import "./Category.css";
 import products from './../../core/productDatas';
+import { useParams } from "react-router-dom";
 
-export default function Category() {
+export default function Category({allCourses}) {
 
 
 
-  const [query, setQuery] = useState("");
-  const keys = ['courseName' ,'title','price'];
-  const search = (data) => {
-    return data.filter((item) =>
-      keys.some((key) => item[key].toLowerCase().includes(query))
-    );
+  const [courses, setCourses] = useState([]);
+  const [orderedCourses, setOrderedCourses] = useState([]);
+  const [shownCourses, setShownCourses] = useState([]);
+  const [status, setStatus] = useState("default");
+  const [statusTitle, setStatusTitle] = useState("مرتب سازی پیش فرض");
+  const [searchValue, setSearchValue] = useState("");
+  const [coursesDisplayType, setCoursesDisplayType] = useState("row");
+
+
+  const { categoryName } = useParams();
+
+  useEffect(() => {
+        console.log(allCourses);
+        setCourses(allCourses);
+        setOrderedCourses(allCourses);
+  }, [categoryName]);
+
+  useEffect(() => {
+    switch (status) {
+      case "free": {
+        const freeCourses = courses.filter((course) => course.price === 0);
+        setOrderedCourses(freeCourses);
+        break;
+      }
+      case "money": {
+        const notFreeCourses = courses.filter((course) => course.price !== 0);
+        setOrderedCourses(notFreeCourses);
+        break;
+      }
+      case "last": {
+        setOrderedCourses(courses);
+        break;
+      }
+      case "first": {
+        const reversedCourses = courses.slice().reverse();
+        setOrderedCourses(reversedCourses);
+        break;
+      }
+      default: {
+        setOrderedCourses(courses);
+      }
+    }
+  }, [status]);
+
+  const statusTitleChangeHandler = (event) => {
+    setStatusTitle(event.target.textContent);
   };
+
+  const searchValueChangeHandler = (event) => {
+    setSearchValue(event.target.value);
+    const filteredCourses = courses.filter((course) =>
+      course.name.includes(event.target.value)
+    );
+    setOrderedCourses(filteredCourses);
+  };
+
+
 
   return (
     <>
@@ -20,7 +71,7 @@ export default function Category() {
       <section class="courses">
         <div class="max-w-7xl mx-auto">
           <div class="courses-top-bar">
-            <div class="courses-top-bar__right">
+            <div class="courses-top-bar__right bg-white-900">
               <div class="courses-top-bar__row-btn courses-top-bar__icon--active">
                 <i class="fas fa-border-all courses-top-bar__icon"></i>
               </div>
@@ -62,14 +113,14 @@ export default function Category() {
                   type="text"
                   class="courses-top-bar__input"
                   placeholder="جستجوی دوره ..."
-                  onChange={(e) => setQuery(e.target.value.toLowerCase())}
+
                 />
                 <i class="fas fa-search courses-top-bar__search-icon"></i>
               </form>
             </div>
           </div>
 
-         
+
 
         </div>
       </section>

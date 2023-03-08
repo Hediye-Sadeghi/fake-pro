@@ -4,13 +4,20 @@ import Navbar from './../Navbar';
 import products from './../../core/productDatas';
 import Category from './../Category/Category';
 import CourseCard from './CourseCard';
+import Footer from './../Footer';
 
 
 
-const allCategories=['مرتب سازی پیش فرض',...new Set(products.map(menu=>menu.Category))]
-export default function Courses() {
+const allCourses=['مرتب سازی پیش فرض',...new Set(products.map(menu=>menu.Category))]
+export default function Courses({allCourses}) {
 
-    
+    const [courses, setCourses] = useState([]);
+    const [shownCourses, setShownCourses] = useState([])
+
+    useEffect(() => {
+       setCourses(allCourses)
+      }, []);
+
     const [allMenu,setAllMenu]=useState(products)
     const [currenPage,setCurrentPage]=useState()
     const [pageSize,setPageSize]=useState()
@@ -44,6 +51,8 @@ export default function Courses() {
         <Category/>
 
         <CourseCard/>
+
+        <Footer/>
 
         </div>
     )

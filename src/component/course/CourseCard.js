@@ -1,6 +1,6 @@
 import React from "react";
 import products from "../../core/productDatas";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 import {CommenButton} from '../commen/CommenButton'
 
 export default function CourseCard() {
@@ -9,7 +9,7 @@ export default function CourseCard() {
       <div className="mx-auto grid max-w-6xl rtl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((pro) => (
           <article className="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
-            <Link to={`/course-info/${pro.courseName}`}>
+            <Link to={`/course-info/${pro.courseName}`}> 
               <div className="relative flex items-end overflow-hidden rounded-xl">
                 <img src={pro.avatar} alt="Hotel Photo" />
                 <div className="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">

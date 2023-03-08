@@ -11,7 +11,7 @@ export default function Team() {
             </p>
             <div className="mx-auto grid max-w-6xl  grid-cols-1 gap-6  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ">
 
-
+ 
             {
                 teacher.map((tea)=>(
                   <Link key={tea.id}  to={`/teacher-info/${tea.id}`}>

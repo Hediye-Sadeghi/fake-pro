@@ -4,22 +4,22 @@ import Breadcrumb from './../Breadcrumb/Breadcrumb';
 import Navbar from './../Navbar';
 import { Link, useParams } from 'react-router-dom';
 import teacher from './../../core/teacherDatas';
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import products from './../../core/productDatas';
 
 
 export default function CourseInfo() {
 
-    const proID=useParams()
-    const product=products.find((product)=>product.id===proID)
+  const { courseName } = useParams()
+  const product = products.find((product) => product.courseName === courseName)
 
   const [courseDetails, setCourseDetails] = useState({});
 
-  const AddToCartHandler=()=>{
-     console.log('helooooooo');
-     
+  const AddToCartHandler = () => {
+    console.log('helooooooo');
+
   }
-  
+
   return (
     <>
       <Navbar />
@@ -44,7 +44,8 @@ export default function CourseInfo() {
           <div class="grid grid-cols-1 row-gap-8 md:grid-cols-2">
             <div class="mx-5 text-right">
               <h1 class="my-6 text-xl text-blue-900 font-bold">
-                آموزش 20 کتابخانه جاوااسکریپت برای بازار کار
+                {product.title}
+
               </h1>
               <p class="text-base px-3 text-blue-700 my-8">
                 امروزه کتابخانه‌ها کد نویسی را خیلی آسان و لذت بخش تر کرده اند.
@@ -130,12 +131,12 @@ export default function CourseInfo() {
                 <div class="shadow-lg p-6 rounded-lg">
                   <div>
                     <span class="text-xl text-blue-900 font-bold ">
-                      آموزش 20 کتابخانه جاوا اسکریپت مخصوص بازار کار
+                      {product.title}
                     </span>
                     <img
-                      src="/images/1.jpg"
+                      src={product.avatar}
                       alt="course image"
-                      class="mt-6 rounded-lg block img-fluid"
+                      class="mt-6 rounded-lg block img-fluid w-full"
                     />
                     <p class="text-base text-blue-700 mt-5 text-right">
                       کتابخانه های بسیار زیادی برای زبان جاوا اسکریپت وجود دارد
@@ -229,12 +230,12 @@ export default function CourseInfo() {
                       </div>
                     </div>
                     <div class="flex items-center bg-orange-100 p-3 rounded-lg">
-                     <Link to={`/teacher-info/${teacher.id}`}>
-                     <i class="fas fa-chalkboard-teacher text-2xl text-gray-500"></i>
-                     <span class="text-lg font-bold text-blue-900 mr-2">
-                       مدرس
+                      <Link to={`/teacher-info/${teacher.id}`}>
+                        <i class="fas fa-chalkboard-teacher text-2xl text-gray-500"></i>
+                        <span class="text-lg font-bold text-blue-900 mr-2">
+                          مدرس
                      </span>
-                     </Link>
+                      </Link>
                     </div>
                   </div>
                   <p class="text-base text-blue-700 mt-6">
@@ -251,21 +252,21 @@ export default function CourseInfo() {
                 <div class="rounded-lg p-10 shadow-lg">
                   <div class="text-center bg-orange-500 p-6 rounded-xl shadow-md cursor-pointer hover:bg-orange-100">
 
-                     {courseDetails.isUserRegisteredToThisCourse === true ? (
-                        <span class="text-2xl font-bold text-blue-900">
-                          <i class="fas fa-graduation-cap text-3xl mx-2 text-blue-900"></i>
-                          دانشجوی دوره هستید
+                    {courseDetails.isUserRegisteredToThisCourse === true ? (
+                      <span class="text-2xl font-bold text-blue-900">
+                        <i class="fas fa-graduation-cap text-3xl mx-2 text-blue-900"></i>
+                        دانشجوی دوره هستید
                          </span>
-                     ) : (
-                       <Link to={`/shopinglist/${products.id}`}>
-                       <span class="text-2xl font-bold text-blue-900" onClick={AddToCartHandler}>
-                         ثبت نام در دوره
+                    ) : (
+                        <Link to={`/shopinglist/${products.id}`}>
+                          <span class="text-2xl font-bold text-blue-900" onClick={AddToCartHandler}>
+                            ثبت نام در دوره
                        </span>
 
-                       </Link>
-                       
-                     )}
-                   
+                        </Link>
+
+                      )}
+
                   </div>
                 </div>
                 <div class="rounded-lg p-10 shadow-lg">

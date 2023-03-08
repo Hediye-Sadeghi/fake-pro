@@ -34,7 +34,7 @@ const Header = () => {
             باشید, بقیه اش با بحر
           </p>
           <div className="flex text-right">
-            <CommenButton>شروع یادگیری</CommenButton>
+            <a href="#start"><CommenButton>شروع یادگیری</CommenButton></a>
             <Link
               href="/"
               aria-label=""

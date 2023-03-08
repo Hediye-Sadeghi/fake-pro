@@ -5,7 +5,7 @@ import {CommenButton} from '../commen/CommenButton'
 
 export default function ArticleCard() {
   return (
-    <div>
+    <div> 
       <div className="inner-carousel mx-auto grid max-w-6xl rtl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
         {article.map((arti) => (
           <Link to={`/article-info/${arti.articleName}`}>

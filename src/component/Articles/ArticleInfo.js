@@ -3,8 +3,15 @@ import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import CommentsTextArea from "../CommentsTextArea/CommentsTextArea";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import { useParams } from 'react-router-dom';
+import article from './../../core/articlesData';
 
 export default function ArticleInfo() {
+
+  const { articleName } = useParams()
+  const arti = article.find((artic) => artic.articleName === articleName)
+
+
   return (
     <>
       <Navbar />
@@ -31,8 +38,7 @@ export default function ArticleInfo() {
             <div>
               <div class="shadow-lg rounded-lg p-5 my-2">
                 <h1 class="text-3xl font-bold text-blue-900 py-5 border-b-2 border-blue-50">
-                  معرفی بهترین سایت آموزش جاوا اسکریپت [ تجربه محور ] + آموزش
-                  رایگان
+                  {arti.description}
                 </h1>
                 <div class="flex justify-center py-5">
                   <div class="flex justify-center mx-2">
