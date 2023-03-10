@@ -3,65 +3,7 @@ import "./Category.css";
 import products from './../../core/productDatas';
 import { useParams } from "react-router-dom";
 
-export default function Category({allCourses}) {
-
-
-
-  const [courses, setCourses] = useState([]);
-  const [orderedCourses, setOrderedCourses] = useState([]);
-  const [shownCourses, setShownCourses] = useState([]);
-  const [status, setStatus] = useState("default");
-  const [statusTitle, setStatusTitle] = useState("مرتب سازی پیش فرض");
-  const [searchValue, setSearchValue] = useState("");
-  const [coursesDisplayType, setCoursesDisplayType] = useState("row");
-
-
-  const { categoryName } = useParams();
-
-  useEffect(() => {
-        console.log(allCourses);
-        setCourses(allCourses);
-        setOrderedCourses(allCourses);
-  }, [categoryName]);
-
-  useEffect(() => {
-    switch (status) {
-      case "free": {
-        const freeCourses = courses.filter((course) => course.price === 0);
-        setOrderedCourses(freeCourses);
-        break;
-      }
-      case "money": {
-        const notFreeCourses = courses.filter((course) => course.price !== 0);
-        setOrderedCourses(notFreeCourses);
-        break;
-      }
-      case "last": {
-        setOrderedCourses(courses);
-        break;
-      }
-      case "first": {
-        const reversedCourses = courses.slice().reverse();
-        setOrderedCourses(reversedCourses);
-        break;
-      }
-      default: {
-        setOrderedCourses(courses);
-      }
-    }
-  }, [status]);
-
-  const statusTitleChangeHandler = (event) => {
-    setStatusTitle(event.target.textContent);
-  };
-
-  const searchValueChangeHandler = (event) => {
-    setSearchValue(event.target.value);
-    const filteredCourses = courses.filter((course) =>
-      course.name.includes(event.target.value)
-    );
-    setOrderedCourses(filteredCourses);
-  };
+export default function Category() {
 
 
 

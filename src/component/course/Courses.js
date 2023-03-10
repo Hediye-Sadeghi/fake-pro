@@ -1,58 +1,56 @@
-import React ,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from './../Navbar';
-
 import products from './../../core/productDatas';
 import Category from './../Category/Category';
 import CourseCard from './CourseCard';
 import Footer from './../Footer';
+import Pagination from './../pagination/Pagination';
+import { Link } from 'react-router-dom';
+import Breadcrumb from './../Breadcrumb/Breadcrumb';
 
 
 
-const allCourses=['مرتب سازی پیش فرض',...new Set(products.map(menu=>menu.Category))]
-export default function Courses({allCourses}) {
 
-    const [courses, setCourses] = useState([]);
+export default function Courses() {
+
+    const [courses, setCourses] = useState([])
     const [shownCourses, setShownCourses] = useState([])
 
-    useEffect(() => {
-       setCourses(allCourses)
-      }, []);
-
-    const [allMenu,setAllMenu]=useState(products)
-    const [currenPage,setCurrentPage]=useState()
-    const [pageSize,setPageSize]=useState()
-    const [categories,setCategories]=useState()
-    const [filter,setFilter]=useState({})
-
-    // useEffect(() => {
-        
-        
-    // }, [])
-
-    // useEffect(() => {
-    //     setCurrentPage()
-        
-    // }, [])
-
-    // useEffect(() => {
-    //     allMenu()
-    //     setFilter()
-    // }, [])
-
-    // useEffect(() => {
-    //     setFilter()
-    //     setCategories()
-    // }, [])
 
     return (
         <div>
-        <Navbar />
+            <Navbar />
 
-        <Category/>
+            <Breadcrumb
+                links={[
+                    { id: 1, title: "خانه", to: "" },
+                    {
+                        id: 2,
+                        title: "تمامی دوره ها",
+                        to: "courses",
+                    },
+                ]}
+            />
 
-        <CourseCard/>
+            <Category />
 
-        <Footer/>
+            <div className="mx-auto grid max-w-6xl rtl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {shownCourses.map((pro) => (
+                    <Link key={pro.id} to={`/course-info/${pro.courseName}`}>
+
+                        <CourseCard title={pro.title} avatar={pro.avatar} price={pro.price} />
+                    </Link>
+                ))}
+            </div>
+
+            <Pagination
+                items={courses}
+                itemsCount={1}
+                pathname='/courses'
+                setShownCourses={setShownCourses}
+            />
+
+            <Footer />
 
         </div>
     )

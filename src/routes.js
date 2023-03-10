@@ -27,13 +27,20 @@ import Discounts from "./component/AdminPanel/Discounts/Discounts";
 import PAdminIndex from "./component/AdminPanel/Index/Index";
 import Tickets from "./component/AdminPanel/Tickets/Tickets";
 
-
+import UserPanel from './component/UserPanel/Index'
+import Orders from './component/UserPanel/Orders/Orders';
+import Index from './component/UserPanel/Index/Index';
+// import Courses from './component/UserPanel/Courses/Courses';
+// import Tickets from './component/UserPanel/Tickets/Tickets';
+// import Ticket from './component/UserPanel/Ticket/Ticket';
+// import TicketAnswer from './component/UserPanel/Tickets/TicketAnswer';
+// import EditAccount from './component/UserPanel/EditAccount/EditAccount';
 
 const routes = [
     { path: '/', element: <Landing /> },
     { path: '/about', element: <AboutUs /> },
     { path: '/course-info/:courseName', element: <CourseInfo /> },
-    { path: '/courses', element: <Courses /> },
+    { path: '/courses/:page', element: <Courses /> },
     { path: '/article-info/:articleName', element: <ArticleInfo /> },
     { path: '/articles/:page', element: <Articles /> },
     { path: '/teacher-info/:ID', element: <TeacherInfos /> },
@@ -43,11 +50,9 @@ const routes = [
     { path: '/shopinglist/:ID?', element: <Shopinglist /> },
 
     {
-        path: "/p-admin/*", 
+        path: "/p-admin/*",
         element: (
-            
-                <AdminPanel />
-           
+            <AdminPanel />
         ),
         children: [
             { path: "", element: <PAdminIndex /> },
@@ -64,6 +69,20 @@ const routes = [
             { path: "discounts", element: <Discounts /> },
             { path: "tickets", element: <Tickets /> },
         ],
+    },
+
+    {
+        path: "/my-account/*",
+        element: <UserPanel />,
+        children: [
+            { path: "", element: <Index /> },
+            { path: "orders", element: <Orders /> },
+            // { path: "buyed", element: <Courses /> },
+            // { path: "tickets", element: <Tickets /> },
+            // { path: "send-ticket", element: <Ticket /> },
+            // { path: "tickets/answer/:id", element: <TicketAnswer /> },
+            // { path: "edit-account", element: <EditAccount /> },
+          ],
     },
 
 ]

@@ -3,33 +3,31 @@ import article from "./../../core/articlesData";
 import { Link } from "react-router-dom";
 import {CommenButton} from '../commen/CommenButton'
 
-export default function ArticleCard() {
+export default function ArticleCard({description,img,title,uploadDate}) {
   return (
     <div> 
-      <div className="inner-carousel mx-auto grid max-w-6xl rtl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-        {article.map((arti) => (
-          <Link to={`/article-info/${arti.articleName}`}>
+
             <div className="overflow-hidden shadow-lg transition-shadow duration-300 p-3 bg-white rounded">
               <a href="/" aria-label="Article">
                 <img
-                  src={arti.img}
+                  src={img}
                   className="object-cover w-full h-64 rounded"
                   alt=""
                 />
               </a>
               <div className="py-5 px-4">
                 <p className="mb-2 text-left text-xs font-semibold text-gray-600 uppercase">
-                  {arti.uploadDate}
+                  {uploadDate}
                 </p>
                 <a
                   href="/"
                   aria-label="Article"
                   className="inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700"
                 >
-                  <p className="text-2xl font-bold leading-5">{arti.title}</p>
+                  <p className="text-2xl font-bold leading-5">{title}</p>
                 </a>
                 <p className="mb-4 text-gray-700 overflow-hidden text-overflow-ellipsis white-space-nowrap;">
-                  {arti.description}
+                  {description}
                 </p>
                 <div className="flex space-x-4 text-left">
                   <a
@@ -99,10 +97,7 @@ export default function ArticleCard() {
                 </div>
               </div>
             </div>
-          </Link>
-        ))}
-      </div>
-      <div className="w-36 mx-auto"><CommenButton>نمایش بیشتر</CommenButton></div>
+
       
     </div>
   );

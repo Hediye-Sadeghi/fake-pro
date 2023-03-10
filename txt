@@ -3,3 +3,6 @@ npm i react-router
 https://freefrontend.com/react-js-accordions/
 
 https://www.tailwindawesome.com/resources/shopify-starter
+https://www.tailwindreact.com/application-ui/navigation/pagination
+
+
