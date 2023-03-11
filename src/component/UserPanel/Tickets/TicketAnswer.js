@@ -7,19 +7,6 @@ export default function TicketAnswer() {
   const { id } = useParams();
   const [ticketInfo, setTicketInfo] = useState({});
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/v1/tickets/answer/${id}`, {
-      headers: {
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).token
-        }`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTicketInfo(data);
-      });
-  }, []);
 
   return (
     <div class="col-9">

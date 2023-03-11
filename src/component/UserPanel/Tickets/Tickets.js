@@ -6,19 +6,7 @@ import Ticket from './../Ticket/Ticket';
 export default function Tickets() {
   const [tickets, setTickets] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/v1/tickets/user`, {
-      headers: {
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).token
-        }`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setTickets(data);
-      });
-  }, []);
+  
 
   return (
     <div class="col-9">
