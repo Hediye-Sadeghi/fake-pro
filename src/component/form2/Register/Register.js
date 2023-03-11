@@ -9,9 +9,10 @@ import {
 } from "../../validators/rules";
 import AuthContext from "../../context/authContext";
 import Input from "../../FormDet/Input";
-import {Button} from "../../commen/Button";
+
 import Navbar from "../../layout/Navbar";
 import Footer from "../../layout/Footer";
+import Button from './../../FormDet/Button';
 
 export default function Register() {
   const authContext = useContext(AuthContext);
@@ -50,18 +51,7 @@ export default function Register() {
       confirmPassword: formState.inputs.password.value,
     };
 
-    fetch(`https://fake-pro-62cfd-default-rtdb.firebaseio.com/users.json`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newUserInfos),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        authContext.login(result.user, result.accessToken);
-      });
+    
 
     console.log("User Register");
   };
@@ -149,7 +139,7 @@ export default function Register() {
               <i className="absolute top-3 left-5 leading-8 text-gray-400 fa fa-lock-open"></i>
             </div>
             <Button
-              className={`flex items-center relative p-3 rounded-lg bg-orange-500 ${
+              className={`flex items-center relative w-full p-3 rounded-lg bg-orange-500 ${
                 formState.isFormValid
                   ? "login-form__btn-success"
                   : "login-form__btn-error"

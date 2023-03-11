@@ -31,7 +31,7 @@ const Navbar = () => {
           <a class="mr-4 hover:text-gray-900">
             <Link
               className="text-blue-900 hover:text-blue-500 lg:pl-4"
-              to="/courses"
+              to="/courses/1"
             >
               دوره های آموزشی
             </Link>
