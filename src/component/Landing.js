@@ -15,13 +15,13 @@ import { HeaderSection } from "./commen/HeaderSection";
 import Categorises from './categories/Categorises';
 import StudentIdea from './studentIdea/StudentIdea';
 import Ideas from './Ideas/Ideas';
-import './Landing.css'
+
 import Statistic from './Statistic/Statistic';
 
 
 AOS.init();
 export default function Landing() {
-    const [searchValue, setSearchValue] = useState('')
+
 
     return (
         <div>
@@ -29,13 +29,7 @@ export default function Landing() {
             <div>
                 <Navbar />
 
-                <input
-                    type="text"
-                    className="landing__searchbar-input"
-                    placeholder="چه چیزی دوست داری یاد بگیری ..."
-                    value={searchValue}
-                    onChange={(event) => setSearchValue(event.target.value)}
-                />
+                
 
 
                 <Header />
