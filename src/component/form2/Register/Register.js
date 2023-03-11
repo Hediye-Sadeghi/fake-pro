@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "./../../hooks/useForm";
-import { 
+import { useForm } from "../../hooks/useForm";
+import {
   requiredValidator,
   minValidator,
   maxValidator,
   emailValidator,
-} from "./../../validators/rules";
-import AuthContext from "./../../context/authContext";
-import "../Login/Login.css";
-import Input from './../../FormDet/Input';
-import Button from './../../FormDet/Button';
+} from "../../validators/rules";
+import AuthContext from "../../context/authContext";
+import Input from "../../FormDet/Input";
+import {Button} from "../../commen/Button";
+import Navbar from "../../layout/Navbar";
+import Footer from "../../layout/Footer";
 
 export default function Register() {
-
-  const authContext = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
   console.log(authContext);
 
   const [formState, onInputHandler] = useForm(
@@ -60,7 +60,7 @@ export default function Register() {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        authContext.login(result.user, result.accessToken)
+        authContext.login(result.user, result.accessToken);
       });
 
     console.log("User Register");
@@ -68,28 +68,27 @@ export default function Register() {
 
   return (
     <>
-
-
-      <section className="login-register">
-        <div className="login register-form">
-          <span className="login__title">ساخت حساب کاربری</span>
-          <span className="login__subtitle">
+      <Navbar />
+      <section className="flex justify-center overflow-hidden relative">
+        <div className="flex flex-col items-center shadow-xl my-10 p-10 rounded-lg border-b-4 border-orange-500">
+          <span className="text-lg font-bold text-blue-900 pb-1">ساخت حساب کاربری</span>
+          <span className="text-md text-blue-700">
             خوشحالیم قراره به جمع ما بپیوندی
           </span>
-          <div className="login__new-member">
-            <span className="login__new-member-text">
+          <div className="flex justify-center bg-blue-50 p-3 rounded-lg my-4">
+            <span className="text-lg text-blue-500 leading-8">
               قبلا ثبت‌نام کرده‌اید؟{" "}
             </span>
-            <Link className="login__new-member-link" to="/login">
+            <Link className="bg-orange-300 text-blue-900 py-1 px-2 text-lg rounded-lg mr-3 hover:bg-orange-200" to="/login">
               وارد شوید
             </Link>
           </div>
-          <form action="#" className="login-form">
-            <div className="login-form__username">
+          <form action="#" className="w-full">
+            <div className="relative">
               <Input
                 type="text"
                 placeholder="نام و نام خانوادگی"
-                className="login-form__username-input"
+                className="w-full my-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 element="input"
                 id="name"
                 onInputHandler={onInputHandler}
@@ -99,13 +98,13 @@ export default function Register() {
                   maxValidator(20),
                 ]}
               />
-              <i className="login-form__username-icon fa fa-user"></i>
+              <i className="absolute top-3 left-5 leading-8 text-gray-400 fa fa-user"></i>
             </div>
-            <div className="login-form__username">
+            <div className="relative">
               <Input
                 type="text"
                 placeholder="نام کاربری"
-                className="login-form__username-input"
+                className="w-full my-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 element="input"
                 id="username"
                 onInputHandler={onInputHandler}
@@ -115,13 +114,13 @@ export default function Register() {
                   maxValidator(20),
                 ]}
               />
-              <i className="login-form__username-icon fa fa-user"></i>
+              <i className="absolute top-3 left-5 leading-8 text-gray-400 fa fa-user"></i>
             </div>
-            <div className="login-form__password">
+            <div className="relative">
               <Input
                 type="text"
                 placeholder="آدرس ایمیل"
-                className="login-form__username-input"
+                className="w-full my-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 element="input"
                 id="email"
                 onInputHandler={onInputHandler}
@@ -131,13 +130,13 @@ export default function Register() {
                   emailValidator(),
                 ]}
               />
-              <i className="login-form__password-icon fa fa-envelope"></i>
+              <i className="absolute top-3 left-5 leading-8 text-gray-400 fa fa-envelope"></i>
             </div>
-            <div className="login-form__password">
+            <div className="relative">
               <Input
                 type="password"
                 placeholder="رمز عبور"
-                className="login-form__password-input"
+                className="w-full my-2 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-gray-300 focus:bg-white focus:ring-2 focus:ring-gray-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 element="input"
                 id="password"
                 onInputHandler={onInputHandler}
@@ -147,10 +146,10 @@ export default function Register() {
                   maxValidator(18),
                 ]}
               />
-              <i className="login-form__password-icon fa fa-lock-open"></i>
+              <i className="absolute top-3 left-5 leading-8 text-gray-400 fa fa-lock-open"></i>
             </div>
             <Button
-              className={`login-form__btn ${
+              className={`flex items-center relative p-3 rounded-lg bg-orange-500 ${
                 formState.isFormValid
                   ? "login-form__btn-success"
                   : "login-form__btn-error"
@@ -159,13 +158,13 @@ export default function Register() {
               onClick={registerNewUser}
               disabled={!formState.isFormValid}
             >
-              <i className="login-form__btn-icon fa fa-user-plus"></i>
-              <span className="login-form__btn-text">عضویت</span>
+              <i className="text-lg text-blue-900 pr-2 fa fa-user-plus"></i>
+              <span className="mx-auto text-lg text-blue-900 font-bold">عضویت</span>
             </Button>
           </form>
-          <div className="login__des">
-            <span className="login__des-title">سلام کاربر محترم:</span>
-            <ul className="login__des-list">
+          <div className="w-full mt-3 text text-blue-900">
+            <span className="font-semibold leading-8">سلام کاربر محترم:</span>
+            <ul className="list-disc text-right leading-8">
               <li className="login__des-item">
                 لطفا از مرورگر های مطمئن و بروز مانند گوگل کروم و فایرفاکس
                 استفاده کنید.
@@ -180,8 +179,7 @@ export default function Register() {
           </div>
         </div>
       </section>
-
-
+      <Footer />
     </>
   );
 }

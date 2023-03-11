@@ -34,7 +34,7 @@ import Index from './component/UserPanel/Index/Index';
 // import Tickets from './component/UserPanel/Tickets/Tickets';
 // import Ticket from './component/UserPanel/Ticket/Ticket';
 // import TicketAnswer from './component/UserPanel/Tickets/TicketAnswer';
-// import EditAccount from './component/UserPanel/EditAccount/EditAccount';
+import EditAccount from './component/UserPanel/EditAccount/EditAccount';
 
 const routes = [
     { path: '/', element: <Landing /> },
@@ -81,7 +81,7 @@ const routes = [
             // { path: "tickets", element: <Tickets /> },
             // { path: "send-ticket", element: <Ticket /> },
             // { path: "tickets/answer/:id", element: <TicketAnswer /> },
-            // { path: "edit-account", element: <EditAccount /> },
+            { path: "edit-account", element: <EditAccount /> },
           ],
     },
 

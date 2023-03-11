@@ -6,7 +6,7 @@ export default function Index() {
   const authContext = useContext(AuthContext);
 
   return (
-    <div class="col-9">
+    <div class="col-9  w-5/6">
       <div class="main">
         <div class="main__title">
           <span class="main__title-text">

@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Footer from './Footer';
-import Navbar from './Navbar';
 import Team from './teacher/Team';
 import CourseCard from './course/CourseCard';
 import ArticleCard from './Articles/ArticleCard';
@@ -11,6 +9,13 @@ import Statistic from './Statistic';
 import { CommenButton } from './commen/CommenButton';
 import products from './../core/productDatas';
 import article from './../core/articlesData';
+import teacher from './../core/teacherDatas';
+import Footer from './layout/Footer';
+import Navbar from './layout/Navbar';
+import { HeaderSection } from "./commen/HeaderSection";
+import Categorises from './categories/Categorises';
+import StudentIdea from './studentIdea/StudentIdea';
+import Ideas from './Ideas/Ideas';
 
 
 
@@ -29,9 +34,7 @@ export default function Landing() {
 
 
 
-                <p id='start' className="text-center text-lg sm:text-3xl  pb-5 font-medium">
-                    در چه حوزه ای می خوای متخصص بشی ؟
-                    </p>
+                <HeaderSection>در چه حوزه ای می خوای متخصص بشی ؟</HeaderSection>
                 <p className="text-center pb-10" > بازار برای متخصص هاست و هیچ موقع بی کار نمی مونید</p>
 
                 <div className="mx-auto grid max-w-6xl rtl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -46,26 +49,45 @@ export default function Landing() {
                 <Link to='/courses/1'><div className="w-36 mx-auto"><CommenButton>نمایش بیشتر</CommenButton></div></Link>
 
 
+                <HeaderSection>دسته بندی</HeaderSection>
+                <Categorises />
 
 
-                <p className="text-center text-lg sm:text-3xl pt-10 pb-5 font-medium">
-                    اخبار و مقالات
-                </p>
+
+
+                <HeaderSection>اخبار و مقالات</HeaderSection>
                 <div className="inner-carousel mx-auto grid max-w-6xl rtl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                     {article.map((arti) => (
                         <Link to={`/article-info/${arti.articleName}`}>
-                            <ArticleCard description={arti.description} img={arti.img} title={arti.title} uploadDate={arti.uploadDate}  />
+                            <ArticleCard description={arti.description} img={arti.img} title={arti.title} uploadDate={arti.uploadDate} />
                         </Link>
                     ))}
-             </div>
-            <div className="w-36 mx-auto"><CommenButton>نمایش بیشتر</CommenButton></div>
+                </div>
+                <Link to='/articles/1'><div className="w-36 mx-auto"><CommenButton>نمایش بیشتر</CommenButton></div></Link>
                 
 
 
 
-                <Team />
+                <HeaderSection>تیم حرفه ای ما</HeaderSection>
+                <div className=" flex flex-col">
+                    <div className="mx-auto grid max-w-6xl  grid-cols-1 gap-6  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ">
+                        {teacher.map((tea) => (
+                            <Link key={tea.id} to={`/teacher-info/${tea.id}`}>
+
+                                <Team name={tea.name} expertise={tea.expertise} avatar={tea.avatar} />
+                            </Link>
+                        ))}
+
+                    </div>
+                </div>
 
 
+
+                <HeaderSection>نظرات دانشجویان</HeaderSection>
+                <StudentIdea />
+
+                <HeaderSection>انتقادات و پیشنهادات</HeaderSection>
+                <Ideas />
 
 
 

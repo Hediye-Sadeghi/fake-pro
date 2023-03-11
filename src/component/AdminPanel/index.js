@@ -10,7 +10,7 @@ export default function index() {
       <div id="content">
         <Sidebar />
 
-        <div id="home" class="col-10">
+        <div id="home" class="col-10 w-5/6 border border-red-300">
           <Topbar />
         </div>
       </div>

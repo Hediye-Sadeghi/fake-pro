@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../Navbar"
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -14,7 +13,8 @@ import Input from './../../FormDet/Input';
 import Button from './../../FormDet/Button';
 import { useForm } from './../../hooks/useForm';
 import AuthContext from './../../context/authContext';
-import Footer from "../../Footer"
+import Footer from './../../layout/Footer';
+import Navbar from './../../layout/Navbar';
 
 
 export default function Login() {

@@ -1,11 +1,9 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-
-
 import './Index.css'
-import Navbar from './../Navbar';
 import Sidebar from './Sidebar/Sidebar';
-import Footer from './../Footer';
+import Footer from './../layout/Footer';
+import Navbar from './../layout/Navbar';
 
 export default function Index() {
     return (
@@ -21,7 +19,7 @@ export default function Index() {
                 </div>
                 <div class="content-main">
                     <div class="container">
-                        <div class="row">
+                        <div class="row flex">
                             <Sidebar />
 
                             <Outlet />

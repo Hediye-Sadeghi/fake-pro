@@ -30,7 +30,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div class="col-3">
+    <div class="col-3 w-1/6">
       <div class="sidebar">
         <span class="sidebar__name">هدیه صادقی</span>
         <ul class="sidebar__list">

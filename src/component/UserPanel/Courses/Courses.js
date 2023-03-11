@@ -7,20 +7,7 @@ export default function Courses() {
   const [showCourseState, setShowCourseState] = useState("all");
   const [shownCourses, setShownCourses] = useState([]);
 
-  useEffect(() => {
-    fetch(`http://localhost:4000/v1/users/courses/`, {
-      headers: {
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("user")).token
-        }`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setCourses(data);
-        setShownCourses(data);
-      });
-  }, []);
+  
 
   const filterCourses = (state) => {
     switch (state) {
@@ -124,7 +111,8 @@ export default function Courses() {
                         <a class="main__box-img-link" href="#">
                           <img
                             class="main__box-img img-fluid"
-                            src={`http://localhost:4000/courses/covers/${course.course.cover}`}
+                            src=''
+                            alt='course img'
                           />
                         </a>
                       </div>

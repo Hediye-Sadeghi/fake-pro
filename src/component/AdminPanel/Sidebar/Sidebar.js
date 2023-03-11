@@ -1,11 +1,28 @@
-import React from "react";
-import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
-import './Sidebar.css'
+import "./Sidebar.css";
+import AuthContext from './../../context/authContext';
 
 export default function Sidebar() {
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logoutAdmin = (event) => {
+    event.preventDefault();
+    swal({
+      title: "با موفقیت لاگ‌آوت شدین",
+      icon: "success",
+      buttons: "اوکی",
+    }).then(() => {
+      authContext.logout();
+      navigate("/");
+    });
+  };
+
   return (
-    <div id="sidebar" class="col-2">
+    <div id="sidebar" class="col-2 w-1/6">
       <div class="sidebar-header">
         <div class="sidebar-logo">
           <a href="#">
@@ -30,6 +47,11 @@ export default function Sidebar() {
             </Link>
           </li>
           <li>
+            <Link to="sessions">
+              <span>جلسات</span>
+            </Link>
+          </li>
+          <li>
             <Link to="menus">
               <span>منو ها</span>
             </Link>
@@ -45,13 +67,38 @@ export default function Sidebar() {
             </Link>
           </li>
           <li>
-            <a href="#">
-              <span>کدهای تخفیف</span>
-            </a>
+            <Link to="comments">
+              <span>کامنت‌ها</span>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="tickets">
+              <span>تیکت‌ها</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="offs">
+              <span>کدهای تخفیف</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="discounts">
+              <span>تخفیف همگانی</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="category">
               <span>دسته‌بندی‌ها</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="contacts">
+              <span>پیغام‌ها</span>
+            </Link>
+          </li>
+          <li>
+            <a href="#" onClick={logoutAdmin}>
+              <span>خروج</span>
             </a>
           </li>
         </ul>

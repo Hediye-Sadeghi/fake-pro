@@ -1,12 +1,12 @@
 import CourseDetailBox from "../CourseDetailBox/CourseDetailBox";
-import Footer from './../Footer';
-import Breadcrumb from './../Breadcrumb/Breadcrumb';
-import Navbar from './../Navbar';
 import { Link, useParams } from 'react-router-dom';
 import teacher from './../../core/teacherDatas';
 import React, { useState } from 'react'
 import products from './../../core/productDatas';
-
+import Navbar from './../layout/Navbar';
+import Footer from './../layout/Footer';
+import Breadcrumb from './../commen/Breadcrumb';
+ 
 
 export default function CourseInfo() {
 

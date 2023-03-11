@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Navbar from './../Navbar';
 import products from './../../core/productDatas';
 import Category from './../Category/Category';
 import CourseCard from './CourseCard';
-import Footer from './../Footer';
 import Pagination from './../pagination/Pagination';
 import { Link } from 'react-router-dom';
-import Breadcrumb from './../Breadcrumb/Breadcrumb';
+import Navbar from './../layout/Navbar';
+import Footer from './../layout/Footer';
+import Breadcrumb from './../commen/Breadcrumb';
 
 
 
@@ -16,8 +16,8 @@ export default function Courses() {
     const [courses, setCourses] = useState([])
     const [shownCourses, setShownCourses] = useState([])
 
-
-    return (
+ 
+    return ( 
         <div>
             <Navbar />
 

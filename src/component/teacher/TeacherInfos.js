@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from './../Navbar';
 import { useParams } from 'react-router-dom';
 import teacher from './../../core/teacherDatas';
+import Navbar from './../layout/Navbar';
 
 export default function TeacherInfos() { 
     const {ID} = useParams()

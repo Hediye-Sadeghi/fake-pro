@@ -1,10 +1,10 @@
 import React from "react";
-import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import CommentsTextArea from "../CommentsTextArea/CommentsTextArea";
-import Footer from "../Footer";
-import Navbar from "../Navbar";
 import { useParams } from 'react-router-dom';
 import article from './../../core/articlesData';
+import Footer from './../layout/Footer';
+import Navbar from './../layout/Navbar';
+import Breadcrumb from './../commen/Breadcrumb';
 
 export default function ArticleInfo() {
 

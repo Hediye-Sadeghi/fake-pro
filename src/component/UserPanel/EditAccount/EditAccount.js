@@ -31,22 +31,7 @@ export default function EditAccount() {
       phone,
     };
 
-    fetch(`http://localhost:4000/v1/users/`, {
-      method: 'PUT',
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user')).token}`
-      },
-      body: JSON.stringify(userNewInfos)
-    }).then(res => {
-      if(res.ok) {
-        swal({
-          title: "اطلاعات اکانت شما با موفقیت ویرایش شد",
-          icon: 'success',
-          buttons: "خیلی هم عالی"
-        })
-      }
-    })
+   
   };
 
   return (
@@ -97,7 +82,7 @@ export default function EditAccount() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="لطفا نام نمایشی خود را وارد کنید"
-                />
+                /> 
               </div>
             </div>
           </div>
