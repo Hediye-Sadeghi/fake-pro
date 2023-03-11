@@ -5,7 +5,7 @@
   }
   
   .landing__searchbar-input {
-    width: 100%;
+    width: 50%;
     padding: 2.5rem;
     border: none;
     border-radius: 1rem;
@@ -13,7 +13,7 @@
   
   .landing__searchbar-btn {
     border: none;
-    background-color: var(--primary-color);
+    background-color: rosybrown;
     position: absolute;
     left: 1rem;
     width: 6rem;
@@ -24,5 +24,5 @@
   
   .landing__searchbar-icon {
     font-size: 2.8rem;
-    color: var(--white-color);
+    color: white;
   }

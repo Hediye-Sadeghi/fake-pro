@@ -1,5 +1,5 @@
 
-import LandingCounter from './LandingCounter/LandingCounter';
+import LandingCounter from './LandingCounter';
 
 const Statistic = ({ count }) => {
     return (

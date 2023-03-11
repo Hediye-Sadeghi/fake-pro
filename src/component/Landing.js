@@ -1,11 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import Team from './teacher/Team';
 import CourseCard from './course/CourseCard';
 import ArticleCard from './Articles/ArticleCard';
 import Header from './Header';
 import AOS from 'aos';
-import Statistic from './Statistic';
 import { CommenButton } from './commen/CommenButton';
 import products from './../core/productDatas';
 import article from './../core/articlesData';
@@ -17,6 +16,7 @@ import Categorises from './categories/Categorises';
 import StudentIdea from './studentIdea/StudentIdea';
 import Ideas from './Ideas/Ideas';
 import './Landing.css'
+import Statistic from './Statistic/Statistic';
 
 
 AOS.init();

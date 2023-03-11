@@ -35,7 +35,7 @@ import UserPanelTicket from './component/UserPanel/Ticket/UserPanelTicket';
 import TicketAnswer from './component/UserPanel/Tickets/TicketAnswer';
 import EditAccount from './component/UserPanel/EditAccount/EditAccount';
 import UserPanelCourses from './component/UserPanel/Courses/UserPanelCourses';
-import SearchResults from './component/SearchResults';
+import Search from './component/Search/Search';
 
 
 const routes = [
@@ -50,7 +50,7 @@ const routes = [
     { path: '/register', element: <Register /> },
     { path: '/contact', element: <Contact /> },
     { path: '/shopinglist/:ID?', element: <Shopinglist /> },
-    { path: '/search/:value' , element:<SearchResults/> },
+    { path: '/search/:value' , element:<Search/> },
 
     {
         path: "/p-admin/*",
