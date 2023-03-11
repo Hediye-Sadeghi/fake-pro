@@ -16,16 +16,26 @@ import { HeaderSection } from "./commen/HeaderSection";
 import Categorises from './categories/Categorises';
 import StudentIdea from './studentIdea/StudentIdea';
 import Ideas from './Ideas/Ideas';
-
+import './Landing.css'
 
 
 AOS.init();
 export default function Landing() {
+    const [searchValue, setSearchValue] = useState('')
+
     return (
         <div>
 
             <div>
                 <Navbar />
+
+                <input
+                    type="text"
+                    className="landing__searchbar-input"
+                    placeholder="چه چیزی دوست داری یاد بگیری ..."
+                    value={searchValue}
+                    onChange={(event) => setSearchValue(event.target.value)}
+                />
 
 
                 <Header />
@@ -64,7 +74,7 @@ export default function Landing() {
                     ))}
                 </div>
                 <Link to='/articles/1'><div className="w-36 mx-auto"><CommenButton>نمایش بیشتر</CommenButton></div></Link>
-                
+
 
 
 

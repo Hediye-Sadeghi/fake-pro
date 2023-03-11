@@ -12,7 +12,7 @@ export default function Topbar() {
 
   return (
     <div class="container-fluid"> 
-      <div class="container">
+      <div class="container px-10">
         <div
           class={`home-header ${
             isShowNotificationsBox && "active-modal-notfication"
@@ -66,11 +66,11 @@ export default function Topbar() {
             <div class="home-profile">
               <div class="home-profile-image">
                 <a href="#">
-                  <img src={adminInfo.profile} alt="" />
+                  <img src='/images/nazari.jpg' alt="" />
                 </a>
               </div>
               <div class="home-profile-name">
-                <a href="#">{adminInfo.name}</a>
+                <a href="#">حامد نظری</a>
               </div>
               <div class="home-profile-icon">
                 <i class="fas fa-angle-down"></i>

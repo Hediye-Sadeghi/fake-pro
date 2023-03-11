@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import swal from 'sweetalert'
 
-import "./EditAccount.css";
+import "./EditAccount.css"; 
 import AuthContext from './../../context/authContext';
 
 export default function EditAccount() {
@@ -12,13 +12,13 @@ export default function EditAccount() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    setName(authContext.userInfos.name);
-    setPhone(authContext.userInfos.phone);
-    setUsername(authContext.userInfos.username);
-    setUsername(authContext.userInfos.username);
-    setEmail(authContext.userInfos.email);
-  }, []);
+  // useEffect(() => {
+  //   setName(authContext.userInfos.name);
+  //   setPhone(authContext.userInfos.phone);
+  //   setUsername(authContext.userInfos.username);
+  //   setUsername(authContext.userInfos.username);
+  //   setEmail(authContext.userInfos.email);
+  // }, []);
 
   const editAccount = (event) => {
     event.preventDefault();

@@ -30,11 +30,13 @@ import Tickets from "./component/AdminPanel/Tickets/Tickets";
 import UserPanel from './component/UserPanel/Index'
 import Orders from './component/UserPanel/Orders/Orders';
 import Index from './component/UserPanel/Index/Index';
-// import Courses from './component/UserPanel/Courses/Courses';
-// import Tickets from './component/UserPanel/Tickets/Tickets';
-// import Ticket from './component/UserPanel/Ticket/Ticket';
-// import TicketAnswer from './component/UserPanel/Tickets/TicketAnswer';
+import UserPanelTickets from './component/UserPanel/Tickets/UserPanelTickets';
+import UserPanelTicket from './component/UserPanel/Ticket/UserPanelTicket';
+import TicketAnswer from './component/UserPanel/Tickets/TicketAnswer';
 import EditAccount from './component/UserPanel/EditAccount/EditAccount';
+import UserPanelCourses from './component/UserPanel/Courses/UserPanelCourses';
+import SearchResults from './component/SearchResults';
+
 
 const routes = [
     { path: '/', element: <Landing /> },
@@ -48,6 +50,7 @@ const routes = [
     { path: '/register', element: <Register /> },
     { path: '/contact', element: <Contact /> },
     { path: '/shopinglist/:ID?', element: <Shopinglist /> },
+    { path: '/search/:value' , element:<SearchResults/> },
 
     {
         path: "/p-admin/*",
@@ -77,10 +80,10 @@ const routes = [
         children: [
             { path: "", element: <Index /> },
             { path: "orders", element: <Orders /> },
-            // { path: "buyed", element: <Courses /> },
-            // { path: "tickets", element: <Tickets /> },
-            // { path: "send-ticket", element: <Ticket /> },
-            // { path: "tickets/answer/:id", element: <TicketAnswer /> },
+            { path: "buyed", element: <UserPanelCourses/> },
+            { path: "tickets", element: <UserPanelTickets /> },
+            { path: "send-ticket", element: <UserPanelTicket /> },
+            { path: "tickets/answer/:id", element: <TicketAnswer /> },
             { path: "edit-account", element: <EditAccount /> },
           ],
     },

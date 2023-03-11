@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import "./Courses.css";
 
-export default function Courses() {
+export default function UserPanelCourses() {
+
   const [courses, setCourses] = useState([]);
   const [showCourseState, setShowCourseState] = useState("all");
   const [shownCourses, setShownCourses] = useState([]);
@@ -36,7 +37,7 @@ export default function Courses() {
   };
 
   return (
-    <div class="col-9">
+    <div class="col-9 w-5/6">
       <div class="courses">
         <div class="courses-header__panel">
           <span class="courses-header__title">دوره های ثبت نام شده</span>

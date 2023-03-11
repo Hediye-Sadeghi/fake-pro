@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Tickets.css";
-import Ticket from './../Ticket/Ticket';
+import UserPanelTicket from './../Ticket/UserPanelTicket';
 
-export default function Tickets() {
+export default function UserPanelTickets() {
   const [tickets, setTickets] = useState([]);
 
   
 
   return (
-    <div class="col-9">
+    <div class="col-9 w-5/6">
       <div class="ticket">
         <div class="ticket-header">
           <span class="ticket-header__title">همه تیکت ها</span>
@@ -98,7 +98,7 @@ export default function Tickets() {
           
           {
               tickets.map(ticket => (
-                <Ticket {...ticket} />
+                <UserPanelTicket {...ticket} />
               ))
           }
         </div>

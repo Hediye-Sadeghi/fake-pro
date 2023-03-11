@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Ticket(props) {
+export default function UserPanelTicket(props) {
   return (
     <div class="ticket-content__box">
       <div class="ticket-content__right">

@@ -35,7 +35,7 @@ export default function Sidebar() {
         <span class="sidebar__name">هدیه صادقی</span>
         <ul class="sidebar__list">
           <li class="sidebar__item">
-            <Link class="sidebar__link" to="my-account">
+            <Link class="sidebar__link" to="#">
               پیشخوان
             </Link>
           </li>
@@ -45,9 +45,9 @@ export default function Sidebar() {
             </Link>
           </li>
           <li class="sidebar__item">
-            <a class="sidebar__link" href="#">
+            <Link class="sidebar__link" to="#">
               کیف پول من
-            </a>
+            </Link>
           </li>
           <li class="sidebar__item">
             <Link class="sidebar__link" to="edit-account">
